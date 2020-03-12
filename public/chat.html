@@ -1,0 +1,47 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>The HTML5 Herald</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+
+<body>
+
+<div id="chattext"></div>
+<div id="chatinput">
+<form>
+  <input type="text" id="msginput">
+<button type="button" id="chatbtn">Send</button>
+</form>
+</div>
+
+  <script src="phizone.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+  $(function () {
+    var socket = io();
+$('#chatbtn').on('click', function(e) {
+e.preventDefault(); // prevents page reloading
+      socket.emit('chat message', $('#msginput').val());
+      $('#msginput').val('');
+      return false;
+   });
+socket.on('chat message', function(msg){
+      $('#chattext').append($('<li>').text(msg));
+    });
+  });
+
+
+      
+
+</script>
+</body>
+</html>
