@@ -9,16 +9,52 @@
   <meta name="author" content="SitePoint">
 
   <link rel="stylesheet" href="css/styles.css?v=1.0">
+  
+  <style>
+  body,html {
+width:100%;
+height:100%;
+margin:0;
+padding:0;
+}
+  form { background: #000;  position: fixed; bottom: 0; width: 100%; box-sizing: border-box; }
+      form input { border: 0; padding: 10px; width: 100%; box-sizing: border-box; }
+      form button {  border: none; padding: 6px 30px; font: inherit; }
+	  form #chatbtn {background: rgb(130, 224, 255);}
+	  form #postbtn {background: lightgrey;}
+      #chattext { list-style-type: none; margin: 0; padding: 0; }
+      #chattext li { padding: 5px 10px; }
+      
+	  #chatinput {width:100%;}
+	  table {
+	  width:100%;
+	  }
+	  #buttontd {
+	  width:1px;
+	  }
+	  #postbtntd {
+	  width:1px;
+	  }
+  </style>
 
 </head>
 
 <body>
 
-<div id="chattext"></div>
+<div id="chattext">
+<li><b>name1: </b>test message1</li>
+<li><b>name2: </b>test message2</li>
+<li><b>name1: </b>test message3</li>
+<li><b>name2: </b>test message4</li>
+</div>
 <div id="chatinput">
 <form>
-  <input type="text" id="msginput">
-<button type="button" id="chatbtn">Send</button>
+<table cellpadding="0" cellspacing="8" border="0"><tr>
+<td id="postbtntd"> <button type="button" id="postbtn">Post</button> </td>
+<td id="postbtntd"> <button type="button" id="postbtn">Invite</button> </td>
+<td>
+  <input type="text" id="msginput"></td>
+<td id="buttontd"><button type="button" id="chatbtn">Send</button></td></tr></table>
 </form>
 </div>
 
@@ -26,6 +62,7 @@
 <script src="/socket.io/socket.io.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 <script>
+// socket io chat funcs
   $(function () {
     var socket = io();
 $('#chatbtn').on('click', function(e) {
@@ -39,6 +76,7 @@ socket.on('chat message', function(msg){
     });
   });
 
+// selection mode
 
       
 
