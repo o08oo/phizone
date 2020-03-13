@@ -5,6 +5,8 @@
   font-size: 16px;
   cursor: pointer;
   display: inline-block;
+  font: inherit;
+  border-radius:5px;
 }
 /* On mouse-over */
 .btn:hover {background: lightblue;}
