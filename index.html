@@ -1,0 +1,309 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Phizone</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="phizone.css">
+
+<style>
+body,html,#content {
+width:100%;
+height:100%;
+margin:0;
+padding:0;
+}
+#header {
+width:100%;
+background-color: navy;
+color: white;
+}
+#header ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  //background-color: #333;
+  text-align:right;
+}
+
+#header li {
+  display:inline;
+
+}
+
+#header li a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 8px;
+  text-decoration: none;
+}
+#header #navbar {
+
+}
+
+#header li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+#header #logo {
+
+  float: left; padding:8px;
+}
+#loginform {
+display:none;
+padding:20px;
+}
+#chatbtndiv {
+float:right;
+padding:28px;
+}
+#loginbutton {
+padding:6px;
+font:inherit;
+}
+#trendingtags {
+
+padding-bottom:0px;
+}
+.headingtext {
+margin:8px;
+}
+.tag {
+text-decoration: none;
+background:#777;
+color: #fff;
+padding:2px 9px;
+margin:4px;
+border-radius:10px;
+white-space:nowrap;
+display:inline-block;
+}
+#topconvos {
+
+}
+
+.topconvo {
+list-style-type: none;
+//padding:10px;
+border: 1px solid grey;
+border-radius:5px;
+display:inline-block;
+width:300px;
+margin:5px;
+float:left; display:inline-block; 
+}
+.topconvo a {color:black; text-decoration:none;}
+.topconvo li { padding: 3px 10px; }
+.keepreading {
+text-align:center;
+background:lightgrey;
+
+}
+.topconvocontainer {
+height:150px; overflow:hidden;
+}
+.upvote {
+//color:red;
+}
+.downvote {
+//color:blue;
+}
+.section {
+padding:20px;
+display:block;
+clear: left;
+}
+@media only screen and (max-width: 700px) {
+  .topconvo {
+    width:100%;
+	display:inline-block;
+	//margin:0;
+	//margin:10px;
+	
+  }
+  .ongoing {
+   //width:100%;
+  }
+}
+@media only screen and (min-width: 1300px) {
+	#centercontainer {
+	margin: 0 auto; display:table;
+	  vertical-align: middle;
+	}
+	#contentbody {
+	position: relative;
+	}
+}
+.ongoing p {
+margin:5px;
+}
+.ongoing {
+padding:5px;
+border:1px solid grey;
+border-radius:5px;
+//box-shadow: 2px 2px;
+margin:10px;
+
+//max-width:700px;
+}
+.ongoing .right {
+float:right;
+}
+.number {
+margin:0px;
+}
+.topic {
+//padding:5px;
+}
+.tagcontainer {
+overflow: hidden;
+    white-space: nowrap;
+}
+</style>
+
+</head>
+
+<body>
+
+<div id="content">
+
+	<div id="header">
+		<div id="logo">PhiZone</div>
+		<div id="navbar">
+		 <ul>
+		  <li><a href="#home">Home</a></li>
+		  <li><a href="#db">Database</a></li>
+		  <li><a href="#abt">About</a></li>
+		  <li><button onclick="toggle_visibility('loginform')" id="loginbutton">Log in</button></li>
+		</ul> 
+		</div>
+	</div>
+	
+	<div id="contentbody">
+		<form action="/" method="post" id="loginform">
+			  <div>
+				<label>Username:</label>
+				<input type="text" name="username" />
+				<br/>
+			  </div>
+			  <div>
+				<label>Password:</label>
+				<input type="password" name="password" />
+			  </div>
+			  <div>
+				<input type="submit" value="Submit" />
+			  </div>
+			</form>
+
+		<div id="chatbtndiv">
+			<button class="btn" onclick='loadcontent("chat.html")'>Start chat</button><br>
+			<input type="checkbox" id="m" checked="true">
+			<label for="m"> matchmake</label><br>
+			<input type="checkbox" id="inv">
+			<label for="inv"> unlisted</label>
+		</div>
+		<div id="centercontainer">
+		<div id="trendingtags" class="section">
+		<p id="trendingtagstext" class="headingtext">Trending tags</p>
+		<a class="tag" href="">philosophy of mind</a>
+		<a class="tag" href="">consciousness</a>
+		<a class="tag" href="">mentalism (philosophy)</a>
+		<a class="tag" href="">tagtest1</a>
+		<a class="tag" href="">tagtest2</a>
+		<a class="tag" href="">tagtest3</a>
+		</div>
+		
+		<div id="topconvos" class="section">
+		<p class="headingtext">Today's top conversations</p>
+		<div class="topconvo">
+		<div class="topconvocontainer">
+			<li><b>name1: </b>test message1</li>
+			<li><b>name2: </b>test message2</li>
+			<li><b>name1: </b>test message3</li>
+			<li><b>name2: </b>test message4</li>
+			<li><b>name1: </b>test message5</li>
+			</div>
+			<li><span class="upvote">▲</span> 100 <span class="downvote">▼</span>&nbsp;</li>
+		</div>
+		<div class="topconvo">
+			<div class="topconvocontainer">
+			<li><b>name1: </b>test message1</li>
+			<li><b>name2: </b>test message2</li>	
+			</div>
+			<li><span class="upvote">▲</span> 200 <span class="downvote">▼</span>&nbsp;</li>
+		</div>
+		<div class="topconvo">
+			<div class="topconvocontainer">
+			<li><b>name1: </b>test message1</li>
+			<li><b>name2: </b>test message2</li>
+			<li><b>name1: </b>test message3</li>
+			<li><b>name2: </b>test message4</li>
+			<li><b>name1: </b>test message5 test message5 test message5 test message5 test message5 test message5 test message5 test message5 </li>
+			<li><b>name1: </b>test message6</li>
+			<li><b>name1: </b>test message7</li>
+			</div>
+			<a href=""><li class="keepreading">Keep reading... (1000)</li></a>
+		</div>
+		</div>
+		
+		<div id="ongoingconvos" class="section">
+		<p class="headingtext">Top ongoing conversations</p>
+		
+		<p class="number">1.</p>
+		<div class="ongoing">
+		<div class="right">Current users: 10<br></div>
+		<p class="topic"><b>Testing Phizone</b></p>
+		<div class="tagcontainer">
+		<p>Tags: <a class="tag" href="">tagtest1</a>
+		<a class="tag" href="">tagtest2</a>
+		<a class="tag" href="">tagtest3</a></p>
+		</div>
+		</div>
+		<p class="number">2.</p>
+		<div class="ongoing">
+		<div class="right">Current users: 20<br></div>
+		<p class="topic"><b>Testing Phizone 2: electric bugaloo</b></p>
+		<div class="tagcontainer">
+		<p>Tags: <a class="tag" href="">tagtest1</a>
+		<a class="tag" href="">tagtest2</a>
+		<a class="tag" href="">tagtest3</a>
+		<a class="tag" href="">tagtest4</a>
+		<a class="tag" href="">tagtest5</a>
+		<a class="tag" href="">tagtest6</a>
+		<a class="tag" href="">tagtest77777</a>
+		<a class="tag" href="">tagtest888</a>
+		</p>
+		</div>
+		</div>
+		
+		</div>
+		</div>
+	</div>
+</div>
+
+
+
+  <script src="phizone.js"></script>
+
+<script>
+
+function toggle_visibility(id) {
+       var e = document.getElementById(id);
+       if(e.style.display == 'block')
+          e.style.display = 'none';
+       else
+          e.style.display = 'block';
+    }
+
+</script>
+</body>
+</html>
