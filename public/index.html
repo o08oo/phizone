@@ -17,6 +17,11 @@ width:100%;
 height:100%;
 margin:0;
 padding:0;
+//font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+font-family: arial, helvetica, sans-serif;
+//font-family: Verdana,sans-serif;
+font-size:17px;
+cursor:default;
 }
 #header {
 width:100%;
@@ -30,6 +35,7 @@ color: white;
   overflow: hidden;
   //background-color: #333;
   text-align:right;
+ 
 }
 
 #header li {
@@ -48,16 +54,18 @@ color: white;
 
 }
 
-#header li a:hover:not(.active) {
+#header li a:hover:not(.active), #loginbutton:hover {
   background-color: #111;
+   cursor:pointer;
 }
 
 .active {
   background-color: #4CAF50;
 }
 #header #logo {
-
+font-family: "Times New Roman", Times, serif;
   float: left; padding:8px;
+  //font-size:18px;
 }
 #loginform {
 display:none;
@@ -66,10 +74,15 @@ padding:20px;
 #chatbtndiv {
 float:right;
 padding:28px;
+background:white;
+padding-bottom:0;
 }
 #loginbutton {
 padding:6px;
 font:inherit;
+color:white;
+border:none;
+background:none;
 }
 #trendingtags {
 
@@ -77,6 +90,7 @@ padding-bottom:0px;
 }
 .headingtext {
 margin:8px;
+
 }
 .tag {
 text-decoration: none;
@@ -98,7 +112,7 @@ list-style-type: none;
 border: 1px solid grey;
 border-radius:5px;
 display:inline-block;
-width:300px;
+width:500px;
 margin:5px;
 float:left; display:inline-block; 
 }
@@ -124,24 +138,35 @@ display:block;
 clear: left;
 }
 @media only screen and (max-width: 700px) {
+  #topconvos {
+  overflow:auto;
+  }
   .topconvo {
-    width:100%;
-	display:inline-block;
+    //width:100%;
+	//display:inline-block;
 	//margin:0;
 	//margin:10px;
+	width:auto;
+	float:none;
+	display:block;
 	
   }
   .ongoing {
    //width:100%;
+
   }
 }
-@media only screen and (min-width: 1300px) {
+@media only screen and (min-width: 900px) {
 	#centercontainer {
 	margin: 0 auto; display:table;
 	  vertical-align: middle;
 	}
 	#contentbody {
 	position: relative;
+	}
+	#chatbtndiv {
+	position: absolute;
+	right:0;
 	}
 }
 .ongoing p {
@@ -157,6 +182,8 @@ margin-bottom:10px;
 margin-top:10px;
 
 //max-width:700px;
+
+display:block;
 }
 .ongoing .right {
 float:right;
@@ -171,6 +198,9 @@ margin:0px;
 overflow: hidden;
     white-space: nowrap;
 }
+#startchatbtn {
+margin-bottom:10px;
+}
 </style>
 
 </head>
@@ -183,10 +213,7 @@ overflow: hidden;
 		<div id="logo">PhiZone</div>
 		<div id="navbar">
 		 <ul>
-		  <li><a href="#home">Home</a></li>
-		  <li><a href="#db">Database</a></li>
-		  <li><a href="#abt">About</a></li>
-		  <li><button onclick="toggle_visibility('loginform')" id="loginbutton">Log in</button></li>
+		  <li><a href="#home">Home</a></li><li><a href="#db">Database</a></li><li><a href="#abt">About</a></li><li><button onclick="toggle_visibility('loginform')" id="loginbutton">Log in</button></li>
 		</ul> 
 		</div>
 	</div>
@@ -208,7 +235,7 @@ overflow: hidden;
 			</form>
 
 		<div id="chatbtndiv">
-			<button class="btn" onclick='loadcontent("chat.html")'>Start chat</button><br>
+			<button class="btn" id="startchatbtn" onclick='loadcontent("chat.html")'>Start chat</button><br>
 			<input type="checkbox" id="m" checked="true">
 			<label for="m"> matchmake</label><br>
 			<input type="checkbox" id="inv">
@@ -226,7 +253,7 @@ overflow: hidden;
 		</div>
 		
 		<div id="topconvos" class="section">
-		<p class="headingtext">Today's top conversations</p>
+		<p class="headingtext">Today's top conversations </p>
 		<div class="topconvo">
 		<div class="topconvocontainer">
 			<li><b>name1: </b>test message1</li>
@@ -244,6 +271,7 @@ overflow: hidden;
 			</div>
 			<li><span class="upvote">▲</span> 200 <span class="downvote">▼</span>&nbsp;</li>
 		</div>
+		<br>
 		<div class="topconvo">
 			<div class="topconvocontainer">
 			<li><b>name1: </b>test message1</li>
@@ -255,6 +283,13 @@ overflow: hidden;
 			<li><b>name1: </b>test message7</li>
 			</div>
 			<a href=""><li class="keepreading">Keep reading... (1000)</li></a>
+		</div>
+		<div class="topconvo">
+			<div class="topconvocontainer">
+			<li><b>name1: </b>test message1</li>
+			<li><b>name2: </b>test message2</li>	
+			</div>
+			<li><span class="upvote">▲</span> 300 <span class="downvote">▼</span>&nbsp;</li>
 		</div>
 		</div>
 		
@@ -271,6 +306,7 @@ overflow: hidden;
 		<a class="tag" href="">tagtest3</a></p>
 		</div>
 		</div>
+		
 		<p class="number">2.</p>
 		<div class="ongoing">
 		<div class="right">Current users: 20<br></div>
