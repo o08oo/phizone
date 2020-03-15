@@ -72,7 +72,7 @@ font:inherit;
 }
 #trendingtags {
 
-padding-bottom:5px;
+padding-bottom:0px;
 }
 .headingtext {
 margin:8px;
@@ -122,6 +122,21 @@ padding:20px;
 display:block;
 clear: left;
 }
+@media only screen and (max-width: 700px) {
+  .topconvo {
+    width:100%;
+  }
+}
+@media only screen and (min-width: 1300px) {
+#centercontainer {
+margin: 0 auto; display:table;
+  vertical-align: middle;
+}
+#contentbody {
+position: relative;
+}
+}
+
 </style>
 
 </head>
@@ -165,6 +180,7 @@ clear: left;
 			<input type="checkbox" id="inv">
 			<label for="inv"> unlisted</label>
 		</div>
+		<div id="centercontainer">
 		<div id="trendingtags" class="section">
 		<p id="trendingtagstext" class="headingtext">Trending tags</p>
 		<a class="tag" href="">philosophy of mind</a>
@@ -212,7 +228,7 @@ clear: left;
 		<p class="headingtext">Current ongoing conversations</p>
 		
 		</div>
-		
+		</div>
 	</div>
 </div>
 
