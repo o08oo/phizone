@@ -10,6 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="phizone.css">
+  
 
 <style>
 body,html,#content {
@@ -99,7 +100,7 @@ color: #fff;
 padding:2px 9px;
 margin:4px;
 border-radius:10px;
-white-space:nowrap;
+//white-space:nowrap;
 display:inline-block;
 }
 #topconvos {
@@ -112,8 +113,9 @@ list-style-type: none;
 border: 1px solid grey;
 border-radius:5px;
 display:inline-block;
-width:500px;
+//width:500px;
 margin:5px;
+margin-bottom:8px;
 float:left; display:inline-block; 
 }
 .topconvo a {color:black; text-decoration:none;}
@@ -137,7 +139,7 @@ padding:20px;
 display:block;
 clear: left;
 }
-@media only screen and (max-width: 700px) {
+
   #topconvos {
   overflow:auto;
   }
@@ -155,8 +157,8 @@ clear: left;
    //width:100%;
 
   }
-}
-@media only screen and (min-width: 900px) {
+
+
 	#centercontainer {
 	margin: 0 auto; display:table;
 	  vertical-align: middle;
@@ -168,7 +170,7 @@ clear: left;
 	position: absolute;
 	right:0;
 	}
-}
+
 .ongoing p {
 margin:5px;
 }
@@ -196,10 +198,28 @@ margin:0px;
 }
 .tagcontainer {
 overflow: hidden;
-    white-space: nowrap;
+   // white-space: nowrap;
 }
 #startchatbtn {
 margin-bottom:10px;
+}
+
+@media only screen and (max-width: 900px) {
+#trendingtags {
+width:60%;
+}
+}
+
+}
+#centercontainer {
+max-width:1200px;
+}
+.ongoing .showmore {
+color:black;
+}
+#topconvos {
+//column-width: 500px;
+// column-gap: 0px;
 }
 </style>
 
@@ -271,7 +291,7 @@ margin-bottom:10px;
 			</div>
 			<li><span class="upvote">▲</span> 200 <span class="downvote">▼</span>&nbsp;</li>
 		</div>
-		<br>
+		
 		<div class="topconvo">
 			<div class="topconvocontainer">
 			<li><b>name1: </b>test message1</li>
@@ -320,6 +340,7 @@ margin-bottom:10px;
 		<a class="tag" href="">tagtest6</a>
 		<a class="tag" href="">tagtest77777</a>
 		<a class="tag" href="">tagtest888</a>
+		<a class="showmore" href="">Show more...</a>
 		</p>
 		</div>
 		</div>
