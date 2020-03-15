@@ -22,7 +22,7 @@ width:100%;
 background-color: navy;
 color: white;
 }
-ul {
+#header ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -31,23 +31,23 @@ ul {
   text-align:right;
 }
 
-li {
+#header li {
   display:inline;
 
 }
 
-li a {
+#header li a {
   display: inline-block;
   color: white;
   text-align: center;
   padding: 8px;
   text-decoration: none;
 }
-#navbar {
+#header #navbar {
 
 }
 
-li a:hover:not(.active) {
+#header li a:hover:not(.active) {
   background-color: #111;
 }
 
@@ -71,7 +71,8 @@ padding:6px;
 font:inherit;
 }
 #trendingtags {
-padding:20px;
+
+padding-bottom:5px;
 }
 .headingtext {
 margin:8px;
@@ -83,9 +84,43 @@ color: #fff;
 padding:2px 9px;
 margin:4px;
 border-radius:10px;
+white-space:nowrap;
+display:inline-block;
 }
 #topconvos {
+
+}
+
+.topconvo {
+list-style-type: none;
+//padding:10px;
+border: 1px solid grey;
+border-radius:5px;
+display:inline-block;
+width:300px;
+margin:5px;
+float:left; display:inline-block; 
+}
+.topconvo a {color:black; text-decoration:none;}
+.topconvo li { padding: 3px 10px; }
+.keepreading {
+text-align:center;
+background:lightgrey;
+
+}
+.topconvocontainer {
+height:150px; overflow:hidden;
+}
+.upvote {
+//color:red;
+}
+.downvote {
+//color:blue;
+}
+.section {
 padding:20px;
+display:block;
+clear: left;
 }
 </style>
 
@@ -130,17 +165,50 @@ padding:20px;
 			<input type="checkbox" id="inv">
 			<label for="inv"> unlisted</label>
 		</div>
-		<div id="trendingtags">
+		<div id="trendingtags" class="section">
 		<p id="trendingtagstext" class="headingtext">Trending tags</p>
-		<a class="tag" href="">philosophy of mind</a><a class="tag" href="">consciousness</a><a class="tag" href="">mentalism (philosophy)</a>
+		<a class="tag" href="">philosophy of mind</a>
+		<a class="tag" href="">consciousness</a>
+		<a class="tag" href="">mentalism (philosophy)</a>
+		<a class="tag" href="">tagtest1</a>
+		<a class="tag" href="">tagtest2</a>
+		<a class="tag" href="">tagtest3</a>
 		</div>
 		
-		<div id="topconvos">
+		<div id="topconvos" class="section">
 		<p class="headingtext">Today's top conversations</p>
-		
+		<div class="topconvo">
+		<div class="topconvocontainer">
+			<li><b>name1: </b>test message1</li>
+			<li><b>name2: </b>test message2</li>
+			<li><b>name1: </b>test message3</li>
+			<li><b>name2: </b>test message4</li>
+			<li><b>name1: </b>test message5</li>
+			</div>
+			<li><span class="upvote">▲</span> 100 <span class="downvote">▼</span>&nbsp;</li>
+		</div>
+		<div class="topconvo">
+			<div class="topconvocontainer">
+			<li><b>name1: </b>test message1</li>
+			<li><b>name2: </b>test message2</li>	
+			</div>
+			<li><span class="upvote">▲</span> 200 <span class="downvote">▼</span>&nbsp;</li>
+		</div>
+		<div class="topconvo">
+			<div class="topconvocontainer">
+			<li><b>name1: </b>test message1</li>
+			<li><b>name2: </b>test message2</li>
+			<li><b>name1: </b>test message3</li>
+			<li><b>name2: </b>test message4</li>
+			<li><b>name1: </b>test message5 test message5 test message5 test message5 test message5 test message5 test message5 test message5 </li>
+			<li><b>name1: </b>test message6</li>
+			<li><b>name1: </b>test message7</li>
+			</div>
+			<a href=""><li class="keepreading">Keep reading... (1000)</li></a>
+		</div>
 		</div>
 		
-		<div id="topconvos">
+		<div id="ongoingconvos" class="section">
 		<p class="headingtext">Current ongoing conversations</p>
 		
 		</div>
