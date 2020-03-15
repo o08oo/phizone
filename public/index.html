@@ -114,8 +114,8 @@ border: 1px solid grey;
 border-radius:5px;
 display:inline-block;
 //width:500px;
-margin:5px;
-margin-bottom:8px;
+//margin:5px;
+//margin-bottom:8px;
 float:left; display:inline-block; 
 }
 .topconvo a {color:black; text-decoration:none;}
@@ -204,7 +204,7 @@ overflow: hidden;
 margin-bottom:10px;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1200px) {
 #trendingtags {
 width:60%;
 }
@@ -217,9 +217,14 @@ max-width:1200px;
 .ongoing .showmore {
 color:black;
 }
-#topconvos {
-//column-width: 500px;
-// column-gap: 0px;
+#topconvoscontainer {
+column-width: 400px;
+column-gap: 0px;
+}
+.topconvopadding {
+ page-break-inside: avoid;
+column-break-inside: avoid;
+padding:5px;
 }
 </style>
 
@@ -274,6 +279,9 @@ color:black;
 		
 		<div id="topconvos" class="section">
 		<p class="headingtext">Today's top conversations </p>
+		<div id="topconvoscontainer">
+		
+		<div class="topconvopadding">
 		<div class="topconvo">
 		<div class="topconvocontainer">
 			<li><b>name1: </b>test message1</li>
@@ -284,6 +292,9 @@ color:black;
 			</div>
 			<li><span class="upvote">▲</span> 100 <span class="downvote">▼</span>&nbsp;</li>
 		</div>
+		</div>
+		
+		<div class="topconvopadding">
 		<div class="topconvo">
 			<div class="topconvocontainer">
 			<li><b>name1: </b>test message1</li>
@@ -291,7 +302,9 @@ color:black;
 			</div>
 			<li><span class="upvote">▲</span> 200 <span class="downvote">▼</span>&nbsp;</li>
 		</div>
+		</div>
 		
+		<div class="topconvopadding">
 		<div class="topconvo">
 			<div class="topconvocontainer">
 			<li><b>name1: </b>test message1</li>
@@ -304,12 +317,17 @@ color:black;
 			</div>
 			<a href=""><li class="keepreading">Keep reading... (1000)</li></a>
 		</div>
+		</div>
+		
+		<div class="topconvopadding">
 		<div class="topconvo">
 			<div class="topconvocontainer">
 			<li><b>name1: </b>test message1</li>
 			<li><b>name2: </b>test message2</li>	
 			</div>
 			<li><span class="upvote">▲</span> 300 <span class="downvote">▼</span>&nbsp;</li>
+		</div>
+		</div>
 		</div>
 		</div>
 		
