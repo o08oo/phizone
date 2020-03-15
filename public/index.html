@@ -7,6 +7,7 @@
   <title>Phizone</title>
   <meta name="description" content="The HTML5 Herald">
   <meta name="author" content="SitePoint">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="phizone.css">
 
@@ -125,18 +126,51 @@ clear: left;
 @media only screen and (max-width: 700px) {
   .topconvo {
     width:100%;
+	display:inline-block;
+	//margin:0;
+	//margin:10px;
+	
+  }
+  .ongoing {
+   //width:100%;
   }
 }
 @media only screen and (min-width: 1300px) {
-#centercontainer {
-margin: 0 auto; display:table;
-  vertical-align: middle;
+	#centercontainer {
+	margin: 0 auto; display:table;
+	  vertical-align: middle;
+	}
+	#contentbody {
+	position: relative;
+	}
 }
-#contentbody {
-position: relative;
+.ongoing p {
+margin:5px;
 }
-}
+.ongoing {
+padding:5px;
+border:1px solid grey;
+border-radius:5px;
+//box-shadow: 2px 2px;
+margin:5px;
+margin-bottom:10px;
+margin-top:10px;
 
+//max-width:700px;
+}
+.ongoing .right {
+float:right;
+}
+.number {
+margin:0px;
+}
+.topic {
+//padding:5px;
+}
+.tagcontainer {
+overflow: hidden;
+    white-space: nowrap;
+}
 </style>
 
 </head>
@@ -225,7 +259,34 @@ position: relative;
 		</div>
 		
 		<div id="ongoingconvos" class="section">
-		<p class="headingtext">Current ongoing conversations</p>
+		<p class="headingtext">Top ongoing conversations</p>
+		
+		<p class="number">1.</p>
+		<div class="ongoing">
+		<div class="right">Current users: 10<br></div>
+		<p class="topic"><b>Testing Phizone</b></p>
+		<div class="tagcontainer">
+		<p>Tags: <a class="tag" href="">tagtest1</a>
+		<a class="tag" href="">tagtest2</a>
+		<a class="tag" href="">tagtest3</a></p>
+		</div>
+		</div>
+		<p class="number">2.</p>
+		<div class="ongoing">
+		<div class="right">Current users: 20<br></div>
+		<p class="topic"><b>Testing Phizone 2: electric bugaloo</b></p>
+		<div class="tagcontainer">
+		<p>Tags: <a class="tag" href="">tagtest1</a>
+		<a class="tag" href="">tagtest2</a>
+		<a class="tag" href="">tagtest3</a>
+		<a class="tag" href="">tagtest4</a>
+		<a class="tag" href="">tagtest5</a>
+		<a class="tag" href="">tagtest6</a>
+		<a class="tag" href="">tagtest77777</a>
+		<a class="tag" href="">tagtest888</a>
+		</p>
+		</div>
+		</div>
 		
 		</div>
 		</div>
