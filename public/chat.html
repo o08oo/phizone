@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>The HTML5 Herald</title>
+  <title>Phizone Chat</title>
   <meta name="description" content="The HTML5 Herald">
   <meta name="author" content="SitePoint">
 
@@ -19,8 +19,8 @@ padding:0;
 }
   form { background: #000;  position: fixed; bottom: 0; width: 100%; box-sizing: border-box; }
       form input { border: 0; padding: 10px; width: 100%; box-sizing: border-box; }
-      form button {  border: none; padding: 6px 30px; font: inherit; }
-	  form #chatbtn {background: rgb(130, 224, 255);}
+      form button {  border: none; padding: 6px 30px; font: inherit; display: inline-block; }
+	  form #chatbtn, #postchatbtn {background: rgb(130, 224, 255);}
 	  form #postbtn {background: lightgrey;}
       #chattext { list-style-type: none; margin: 0; padding: 0; }
       #chattext li { padding: 5px 10px; }
@@ -29,11 +29,15 @@ padding:0;
 	  table {
 	  width:100%;
 	  }
-	  #buttontd {
+	  .btntd {
 	  width:1px;
 	  }
-	  #postbtntd {
-	  width:1px;
+	  
+	  #selectionmodeui {
+	  display:none;
+	  }
+	  .ds-selected {
+	  background:lightgreen;
 	  }
   </style>
 
@@ -49,18 +53,28 @@ padding:0;
 </div>
 <div id="chatinput">
 <form>
-<table cellpadding="0" cellspacing="8" border="0"><tr>
-<td id="postbtntd"> <button type="button" id="postbtn">Post</button> </td>
-<td id="postbtntd"> <button type="button" id="postbtn">Invite</button> </td>
-<td>
-  <input type="text" id="msginput"></td>
-<td id="buttontd"><button type="button" id="chatbtn">Send</button></td></tr></table>
+<table cellpadding="0" cellspacing="8" border="0" id="chatmodeui"><tr>
+
+	<td id="postbtntd" class="btntd"> <button type="button" id="postbtn" onclick="enter_selectionmode()">Post</button> </td>
+	<td id="invitebtntd" class="btntd"> <button type="button" id="postbtn">Invite</button> </td>
+	<td>
+	  <input type="text" id="msginput"></td>
+	<td id="buttontd" class="btntd"><button type="button" id="chatbtn">Send</button></td></tr>
+</table>
+
+<table cellpadding="0" cellspacing="8" border="0" id="selectionmodeui" style="white-space: nowrap;"><tr>
+<td id="postchatbtntd" > <button type="button" id="postchatbtn" onclick="postselection()">Post selected</button> </td>
+<td id="backbtntd"> <button type="button" id="backbtn" onclick="exit_selectionmode()">Go back</button> </td> <td style="width:100%"></td>
+</tr>
+</table>
+
 </form>
 </div>
 
   <script src="phizone.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script src="DragSelect.js"></script>
 <script>
 // socket io chat funcs
   $(function () {
@@ -77,8 +91,31 @@ socket.on('chat message', function(msg){
   });
 
 // selection mode
-
+var ds
+function enter_selectionmode() {
+       var e = document.getElementById("chatmodeui");
+       var e2 = document.getElementById("selectionmodeui");
+	   e.style.display = 'none';
+       e2.style.display = 'table';
+	   
+	   ds = new DragSelect({
+		  selectables: document.getElementsByTagName("li"),
+		  area: document.getElementById('chattext')
+		});
+    }
+function exit_selectionmode() {
+       var e = document.getElementById("chatmodeui");
+       var e2 = document.getElementById("selectionmodeui");
+	   e2.style.display = 'none';
+       e.style.display = 'table';
+	   ds.stop();
+    }
       
+function postselection() {
+var selected = ds.getSelection();
+// get database id of each selected element and send start and end of selection to server
+}
+
 
 </script>
 </body>
